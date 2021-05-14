@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Ubuntu:wght@500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* Etiquetas */
+
+h1 {
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    margin-top: 10px;
+}
+
+h2 {
+    color: white;
+}
+
+
+/* Clases */
+
+.tarjetaEvento {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+    padding: 30px;
+    background-color: #ece9ec;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 2px #3d348b solid;
+}
+
+.datosEvento {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 50px;
+    margin: auto;
+}
+
+.datosEvento h3 {
+    margin-bottom: 20px;
+}
+
+.imagenEventos {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.btnMorado {
+    margin-top: 10px;
+    border: transparent;
+    background: linear-gradient(to right, #3d348b, #7678ed);
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.btnMorado:hover {
+    background: linear-gradient(to left, #3d348b, #7678ed);
+    transition: 0.5s;
+    color: black;
+}
+
+.box-column {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.box-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.recordar input {
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.desenfocado {
+    filter: blur(5px);
+}
+
+
+/* Id's*/
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #3d348b, #7678ed, white);
+    overflow-y: scroll;
+}
+
+#title {
+    text-align: center;
+}
+
+#btnBarras {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    color: white;
+    font-size: 1.5rem;
+}
+
+#btnIniciarSesion {
+    position: absolute;
+    top: 2%;
+    right: 6%;
+    border: transparent;
+    background: linear-gradient(to right, #f18701, #f35b04);
+    padding: 15px 10px;
+    border-radius: 20px;
+    color: white;
+}
+
+#btnIniciarSesion:hover {
+    background: linear-gradient(to right, #f7b801, #f18701);
+    color: black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#nuevosEventos h2 {
+    text-align: center;
+}
+
+#nuevosEventos {
+    margin-top: 40px;
+}
+
+#iniciaSesion {
+    background-color: white;
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 30px 10px;
+    border-radius: 10px;
+}
+
+#titleIniciarSesion {
+    justify-content: space-between;
+}
+
+#btnCerrar:hover {
+    color: #333;
+    cursor: pointer;
+}

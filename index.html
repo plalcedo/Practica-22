@@ -31,7 +31,7 @@
             </div>
         </main>
 
-        <div id="iniciaSesion">
+        <div id="iniciaSesion" class="cajaFormulario">
 
             <form action="" id="formIniciarSesion">
                 <div class="box-column">
@@ -43,24 +43,81 @@
                 </div>
                 <div class="box-column">
                     <label for="">Email</label>
-                    <input type="email">
+                    <input type="email" id="email" placeholder="Email">
                 </div>
                 <div class="box-column">
                     <label for="">Contraseña</label>
-                    <input type="password">
+                    <input type="password" id="password" placeholder="Contraseña">
                 </div>
                 <div class="box-row recordar">
                     <label for="">¿Recordar tus datos?</label>
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox">
                 </div>
-                <div class="box-row">
-                    <button class="btnMorado">Ingresar</button>
-                </div>
-                <div class="box-column">
-                    <a href="#">¿Olvidaste tu contraseña?</a>
-                    <a href="#">¿No tienes cuenta?</a>
+                <div class="parteBaja">
+                    <div class="box-row">
+                        <button class="btnMorado">Ingresar</button>
+                    </div>
+                    <div class="box-column">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                        <a href="#">¿No tienes cuenta?</a>
+                    </div>
                 </div>
             </form>
+        </div>
+
+        <div id="entradas" class="cajaFormulario">
+            <form action="" id="formComprarBoletos">
+                <div class="box-column">
+                    <div class="box-row" id="titleComprarBoletos">
+                        <h3 id="titleEvent"></h3>
+                        <h3>Compra tus boletos</h3>
+                        <i class="fas fa-times" id="btnCerrar2"></i>
+                    </div>
+                    <p>Ingresa la información de tu tarjeta:</p>
+                </div>
+                <div class="box-column">
+                    <label for="">Titular de la tarjeta</label>
+                    <input type="text" id="titularTarjeta" placeholder="Nombre completo" value="Pedro">
+                </div>
+                <div class="box-column">
+                    <label for="">Número de la tarjeta</label>
+                    <input type="number" id="numeroTarjeta" placeholder="0000 0000 0000 0000" value="1111111111111111">
+                </div>
+                <div class="box-row">
+                    <div class="box-column">
+                        <label for="">Fecha de vencimiento</label>
+                        <input type="date" id="fechaTarjeta">
+                    </div>
+                    <div class="box-column">
+                        <label for="">Código de seguridad</label>
+                        <input type="number" id="codigoTarjeta" placeholder="000" value="000">
+                    </div>
+                </div>
+                <div class="parteBaja">
+                    <div class="box-column">
+                        <button class="btnMorado" id="btnPagar" href="#">Pagar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="compraExitosa" class="cajaFormulario">
+            <div class="box-row">
+                <img src="assets/img/excelente.jpg" alt="Excelente" class="imgNotificacion">
+                <div class="box-column text-center">
+                    <p>¡Ya tienes tus boletos!</p>
+                    <p>Revisa tu correo electrónico</p>
+                </div>
+            </div>
+        </div>
+        <div id="compraRechazada" class="cajaFormulario">
+            <img src="assets/img/ayno.jpg" alt="Ayno" class="imgNotificacion">
+            <div class="box-column text-center">
+                <p>Ayno... Algo sucedió</p>
+                <p>No se pudo procesar el pago, intentalo más tarde</p>
+            </div>
+        </div>
+        <div id="notificacion">
+
         </div>
     </div>
 

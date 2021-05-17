@@ -92,6 +92,51 @@ h2 {
     filter: blur(5px);
 }
 
+.border-valid {
+    border: 2px green solid;
+}
+
+.border-invalid {
+    border: 2px red solid;
+}
+
+.parteBaja {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.parteBaja a {
+    text-decoration: none;
+    color: black;
+}
+
+.parteBaja a:hover {
+    color: #3d348b;
+}
+
+.cajaFormulario {
+    background-color: white;
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 30px 10px;
+    border-radius: 10px;
+}
+
+.imgNotificacion {
+    width: 100px;
+    height: 100px;
+}
+
+.text-center {
+    text-align: center;
+}
+
 
 /* Id's*/
 
@@ -140,22 +185,56 @@ h2 {
     margin-top: 40px;
 }
 
-#iniciaSesion {
-    background-color: white;
-    width: 40%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    padding: 30px 10px;
-    border-radius: 10px;
+#titleIniciarSesion {
+    justify-content: space-between;
 }
 
-#titleIniciarSesion {
+#titleComprarBoletos {
     justify-content: space-between;
 }
 
 #btnCerrar:hover {
     color: #333;
     cursor: pointer;
+}
+
+#btnCerrar2:hover {
+    color: #333;
+    cursor: pointer;
+}
+
+#fechaTarjeta {
+    margin-right: 10px;
+}
+
+#notificacion {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    width: 200px;
+    height: 100px;
+    background-color: #3d348b;
+    border-radius: 20px;
+    border: 3px white solid;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Quitar flechas en el input number */
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+nput[type=number] {
+    -moz-appearance: textfield;
 }

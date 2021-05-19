@@ -51,7 +51,7 @@ window.onload = () => {
                             <h3 class="tituloEventos">${eventos[evento].titulo}</h3>
                             <p class="descripcionEventos">${eventos[evento].descripcion}</p>
                             <p class="descripcionEventos">Precio: $${eventos[evento].precio}</p>
-                            <button class="btnMorado btnCompraBoletos" onClick="comprar(${eventos[evento]})">Comprar boletos</button>
+                            <button class="btnMorado btnCompraBoletos" onClick="comprar('${eventos[evento].titulo}', '${eventos[evento].precio}')">Comprar boletos</button>
                         </div>
                     </div>
                 `;
@@ -74,13 +74,26 @@ window.onload = () => {
 }
 
 // Acción del botón comprar
-function comprar(eventos) {
+
+// Verificar campos
+var estadoTitular = false;
+var estadoNumero = false;
+var estadoCodigo = false;
+var estadoFecha = false;
+var estadoCantidad = false;
+var cantidadEntradas = 0;
+
+
+function comprar(titulo, precio) {
+
+    var precioEntradas = Number(precio);
 
     // Mostrar caja de compra
-    $("#titleEvent").text(eventos.titulo);
+    $("#titleEvent").text(titulo);
     $("#nuevosEventos").hide();
     $("#header").addClass("desenfocado");
     $("#entradas").fadeIn();
+    $("#btnPagar").removeAttr('disabled');
 
     // Ocultar caja de compra
     $("#btnCerrar2").click(() => {
@@ -89,13 +102,10 @@ function comprar(eventos) {
         $("#nuevosEventos").fadeIn();
         $("#compraExitosa").fadeOut();
         $("#compraRechazada").fadeOut();
+
+        resetForm();
     });
 
-    // Verificar campos
-    var estadoTitular = false;
-    var estadoNumero = false;
-    var estadoCodigo = false;
-    var estadoFecha = false;
 
 
     // Titular de la tarjeta
@@ -151,6 +161,21 @@ function comprar(eventos) {
             $("#fechaTarjeta").removeClass("border-valid");
             $("#fechaTarjeta").addClass("border-invalid");
             estadoFecha = false;
+        }
+    });
+
+    // Cantidad de entradas
+    $("#cantidadEntradas").change(() => {
+        cantidadEntradas = Number($("#cantidadEntradas").val());
+        console.log(cantidadEntradas);
+
+        if (cantidadEntradas > 0) {
+            estadoCantidad = true;
+            var precioTotal = cantidadEntradas * precioEntradas;
+            console.log(precioTotal)
+            $("#totalPagar").text(" $" + precioTotal);
+        } else {
+            estadoCantidad = false;
         }
     });
 
@@ -244,7 +269,9 @@ function checkDate() {
 // Botón de pagar
 $("#btnPagar").click((event) => {
     event.preventDefault();
-    if (estadoTitular == true && estadoNumero == true && estadoCodigo == true && estadoFecha == true) {
+    var cantidadEntradas = $("#cantidadEntradas").val();
+    console.log(cantidadEntradas);
+    if (estadoTitular == true && estadoNumero == true && estadoCodigo == true && estadoFecha == true && cantidadEntradas > 0) {
 
         // Por motivos de práctica, será un 50/50
         var random = Math.random() * (100 - 0) + 0;
@@ -258,6 +285,8 @@ $("#btnPagar").click((event) => {
             $("#compraRechazada").fadeIn();
         }
 
+        $("#btnPagar").attr('disabled', 'disabled');
+
 
     } else {
         $("#notificacion").text("Revisa los campos");
@@ -267,3 +296,18 @@ $("#btnPagar").click((event) => {
         }, 2000);
     }
 });
+
+function resetForm() {
+    $("#formComprarBoletos select").each(function() {
+        this.selectedIndex = 0;
+    });
+    $("#formComprarBoletos input[type=text], input[type=number], input[type=date]").each(function() {
+        this.value = '';
+    });
+    $("#titularTarjeta").removeClass("border-valid");
+    $("#numeroTarjeta").removeClass("border-valid");
+    $("#codigoTarjeta").removeClass("border-valid");
+    $("#fechaTarjeta").removeClass("border-valid");
+    $("#totalPagar").text('');
+
+}

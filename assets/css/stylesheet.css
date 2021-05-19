@@ -222,6 +222,10 @@ h2 {
     align-items: center;
 }
 
+#totalPagar {
+    margin-left: 10px;
+}
+
 
 /* Quitar flechas en el input number */
 
